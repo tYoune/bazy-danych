@@ -1,0 +1,31 @@
+mysql -u borowskil -p
+
+show databases;
+
+use borowskil
+
+show tables;
+
+create table postac
+(id_postaci INT PRIMARY KEY AUTO_INCREMENT, 
+nazwa VARCHAR(40), 
+rodzaj ENUM('wiking','ptak','kobieta'), 
+data_ur DATE, wiek INT UNSIGNED);
+
+INSERT INTO postac(id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES(NULL,'Bjorn','wiking','1045,12,12',30); //X3
+
+desc postac;
+
+show create table postac;
+
+select*FROM postac
+
+create table walizka
+(id_walizki INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ pojemnosc INT UNSIGNED,
+ kolor ENUM('rozowy','czerwony','teczowy','zolty'),
+ id_wlasciciela INT, FOREIGN KEY(id_wlasciciela) REFERENCES postac(id_postaci));
+
+INSERT INTO walizka(id_walizki, pojemnosc, kolor, id_wlasciciela) VALUES(NULL, 30, 'czerwony', 1); //x2
+
+ALTER TABLE walizka MODIFY COLUMN kolor ENUM('rozowy','czerwony','teczowy','zolty') NOT NULL DEFAULT 'rozowy';
