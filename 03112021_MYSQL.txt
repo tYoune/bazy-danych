@@ -1,0 +1,23 @@
+CREATE TABLE izba
+(adres_budynku INT,
+nazwa_izby VARCHAR(40),
+metraz INT UNSIGNED,
+wlasciciel INT, FOREIGN KEY(wlasciciel) REFERENCES postac(id_postaci) ON DELETE SET NULL,
+PRIMARY KEY(adres_budynku, nazwa_izby));
+
+ALTER TABLE izba ADD COLUMN kolor ENUM('bialy','czrwony','niebieski','czarny') DEFAULT 'czarny'
+
+INSERT INTO izba(adres_budynku, nazwa_izby, metraz, wlasciciel)
+VALUES(1, "spizarnia", 40, 1);
+
+
+CREATE TABLE przetwory
+(id_przetworu INT PRIMARY KEY,
+rok_produkcji INT DEFAULT '1654',
+id_wykonawcy INT, FOREIGN KEY(id_wykonawcy) REFERENCES postac(id_postaci),
+zawartosc VARCHAR(40),
+dodatek VARCHAR(40) DEFAULT 'papryczka chilli',
+id_konsumenta INT,
+FOREIGN KEY(id_konsumenta) REFERENCES postac(id_postaci);
+
+INSERT INTO przetwory(id_przetworu,rok_produkcji, id_wykonawcy, zawartosc, dodatek, id_konsumenta) VALUES(1, 1654, 1, 'bigos', 'papryczka chilli', 1);
