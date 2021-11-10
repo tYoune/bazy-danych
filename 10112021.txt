@@ -1,0 +1,41 @@
+CREATE TABLE statek(nazwa_statku VARCHAR(40) PRIMARY KEY NOT NULL,rodzaj_statku ENUM('statek1','statek2','statek3'),data_wodowania DATE, max_ladownosc INT UNSIGNED);
+
+INSERT INTO statek(nazwa_statku,rodzaj_statku,data_wodowania,max_ladownosc)VALUES('statek1','statek1','1000,04,10',5000);
+
+ALTER TABLE postac ADD COLUMN funkcja VARCHAR(40);
+
+UPDATE postac SET funkcja = 'kapitan' WHERE id_postaci = 1;
+
+UPDATE postac SET id_statku = 'statek1' WHERE id_postaci = 2; x6
+
+DELETE FROM izba WHERE adres_budynku = 1;
+
+DROP TABLE izba;
+
+DELETE FROM postac WHERE id_postaci = 7; x2
+
+ALTER TABLE walizka DROP CONSTRAINT walizka_ibfk_1; x3
+
+ALTER TABLE walizka DROP id_wlasciciela; x3
+
+ALTER TABLE postac MODIFY id_postaci int(1),DROP PRIMARY KEY;
+
+ALTER TABLE postac ADD COLUMN pesel VARCHAR(11);
+
+UPDATE postac SET pesel = 11111111111  WHERE id_postaci = 1; x7
+
+ALTER TABLE postac MODIFY COLUMN pesel VARCHAR(11) PRIMARY KEY;
+
+ALTER TABLE postac MODIFY COLUMN rodzaj enum('wiking','ptak','kobieta','syrena');
+
+INSERT INTO postac(id_postaci,nazwa,rodzaj,data_ur,wiek,funkcja,id_statku,pesel)VALUES(7,'syrena1','syrena','950,05,09',100,NULL,'statek2','11111111117');
+
+UPDATE postac SET nazwa = 'Gertruda Nieszczera' WHERE id_postaci = 7; 
+
+UPDATE postac SET id_statku = 'statek1' WHERE id_postaci = 7;
+
+UPDATE postac SET id_statku = 'statek2' WHERE id_postaci = 2; x2
+
+
+
+
