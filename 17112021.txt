@@ -1,0 +1,41 @@
+ALTER TABLE postac ADD CHECK (wiek < 1000);
+ALTER TABLE postac MODIFY COLUMN rodzaj ENUM('wiking','ptak','kobieta','syrena','waz') DEFAULT NULL;
+ INSERT INTO postac VALUES(NULL,'Loko','waz','1000,01,01',45,NULL,NULL,11111111118;
+CREATE TABLE marynarz(
+    -> id_postaci int DEFAULT NULL,
+    -> nazwa VARCHAR(40) DEFAULT NULL,
+    -> rodzaj ENUM('wiking','ptak','kobieta','syrena'DEFAULT NULL,
+    -> data_ur DATE DEFAULT NULL,
+    -> wiek INT UNSIGNED DEFAULT NULL,
+    -> funkcja VARCHAR(40) DEFAULT NULL,
+    -> id_statku VARCHAR(40) DEFAULT NULL,
+    -> pesel CHAR(11)PRIMARY KEY NOT NULL);
+
+INSERT INTO marynarz VALUES(1,'Bjorn','wiking','1045-12-12',30,'kapitan','statek1',11111111111); x6
+
+UPDATE postac SET id_statku = NULL WHERE id_postaci = 1; x6
+
+DELETE FROM postac WHERE id_postaci = 4;
+DELETE FROM marynarz WHERE id_postaci = 4;
+ALTER TABLE postac DROP CONSTRAINT postac_ibfk_1;
+DELETE FROM statek WHERE nazwa_statku = 'statek1'; x2
+DROP TABLE statek;
+CREATE TABLE zwierz(
+    -> id_zwierz INT PRIMARY KEY AUTO_INCREMENT,
+    -> nazwa VARCHAR(40),
+    -> wiek INT);
+INSERT INTO zwierz VALUES(0,'Drozd',5); x2
+CREATE TABLE kreatura AS SELECT * FROM wikingowie.kreatura; x3
+
+SELECT * FROM kreatura WHERE rodzaj != 'wiedzma' AND udzwig >= 50;
+
+ SELECT * FROM zasob WHERE waga > 2 AND waga < 5;
+
+ SELECT * FROM zasob WHERE MONTH(dataPozyskania) = 7 OR MONTH(dataPozyskania) = 8;
+
+ SELECT * FROM zasob WHERE rodzaj IS NOT NULL ORDER BY waga ASC;
+SELECT * FROM kreatura ORDER BY dataUr ASC;
+
+ SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+
+SELECT * FROM kreatura WHERE nazwa LIKE '%or%'
