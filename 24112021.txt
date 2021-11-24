@@ -1,0 +1,24 @@
+SELECT DISTINCT nazwa FROM zasob;
+SELECT DISTINCT rodzaj FROM zasob;
+SELECT CONCAT(nazwa,"-",rodzaj) FROM kreatura WHERE rodzaj LIKE 'wi%';
+SELECT ilosc*waga FROM zasob WHERE(dataPozyskania BETWEEN '2000-01-01' AND '2007-12-12');
+SELECT waga FROM zasob WHERE rodzaj = 'jedzenie';
+SELECT 70%waga, SUM(30%waga) FROM zasob WHERE rodzaj = 'jedzenie';
+SELECT * FROM zasob WHERE rodzaj IS NULL;
+SELECT DISTINCT * FROM zasob WHERE nazwa LIKE 'ba%' OR nazwa LIKE '%os' ORDER BY nazwa;
+SELECT DISTINCT nazwa FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE '%os' ORDER BY nazwa;
+SELECT AVG(waga) FROM kreatura WHERE rodzaj = 'wiking';
+SELECT rodzaj, AVG(waga),COUNT(rodzaj) FROM kreatura GROUP BY rodzaj;
+SELECT rodzaj, AVG(YEAR(dataUr)) FROM kreatura GROUP BY rodzaj;
+SELECT nazwa, SUM(waga) FROM zasob GROUP BY nazwa;
+SELECT nazwa, AVG(waga) FROM zasob WHERE waga >= 4 GROUP BY nazwa HAVING AVG(waga) > 10;
+SELECT DISTINCT rodzaj, COUNT(nazwa) FROM zasob GROUP BY rodzaj HAVING MIN(ilosc) > 1;
+
+
+
+
+
+
+
+
+
