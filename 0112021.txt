@@ -1,0 +1,13 @@
+SELECT kreatura.nazwa, SUM(ekwipunek.ilosc) FROM ekwipunek LEFT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE kreatura.nazwa IS NOT NULL GROUP BY nazwa;
+
+SELECT kreatura.nazwa, zasob.nazwa AS ilosc_zasobow FROM ekwipunek LEFT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu;
+
+SELECT kreatura.nazwa FROM ekwipunek RIGHT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury WHERE ekwipunek.idEkwipunku IS NULL;
+
+SELECT kreatura.nazwa, zasob.nazwa AS nazwa_zasobu FROM ekwipunek LEFT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE(kreatura.dataUr BETWEEN '1670-01-01' A
+ND '1679-12-12');
+
+SELECT kreatura.nazwa, zasob.nazwa AS jedzenie FROM ekwipunek LEFT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE zasob.rodzaj = 'jedzenie';
+
+
+
