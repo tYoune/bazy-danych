@@ -1,0 +1,15 @@
+SELECT nazwa FROM kreatura WHERE idKreatury mod 5 =  1;
+
+
+SELECT kreatura.nazwa, AVG(zasob.waga) FROM ekwipunek LEFT JOIN kreatura ON kreatura.idKreatury = ekwipunek.idKreatury LEFT JOIN zasob ON zasob.idZasobu = ekwipunek.idZasobu WHERE kreatura.rodzaj != "malpa" AND kreatura.rodzaj !=
+"waz" AND ekwipunek.ilosc < 30 GROUP BY nazwa;
+
+
+SELECT nazwa,rodzaj,dataUr FROM kreatura AS k1 WHERE dataUr = (SELECT MIN(dataUr) FROM kreatura WHERE rodzaj = k1.rodzaj) OR dataUr = (SELECT MAX(dataUr) FROM kreatura WHERE rodzaj = k1.rodzaj);
+
+SELECT k1.nazwa FROM uczestnicy AS u1 JOIN kreatura AS k1 ON u1.id_uczestnika = k1.idKreatury WHERE u1.id_uczestnika IS NULL ;
+
+SELECT k1.nazwa FROM uczestnicy AS u1 RIGHT OUTER JOIN kreatura AS k1 ON u1.id_uczestnika = k1.idKreatury WHERE u1.id_uczestnika IS NULL;
+
+SELECT w1.nazwa,SUM(e1.ilosc) AS sumailosciekwipunku FROM wyprawa AS w1 JOIN uczestnicy AS u1 ON w1.id_wyprawy = u1.id_wyprawy JOIN ekwipunek AS e1 ON u1.id_uczestnika = e1.idKreatury GROUP BY w1.nazwa;
+
